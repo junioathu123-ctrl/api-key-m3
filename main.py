@@ -194,5 +194,10 @@ async def autorizados(interaction: discord.Interaction):
         ephemeral=True
     )
 
-# Rodar o bot
-bot.run("SEU_TOKEN_AQUI")
+# Rodar o bot com token seguro das variáveis de ambiente
+token = os.getenv("DISCORD_TOKEN")
+if not token:
+    print("❌ ERRO: Variável DISCORD_TOKEN não configurada!")
+    exit(1)
+
+bot.run(token)
